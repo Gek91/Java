@@ -68,10 +68,94 @@ public class CodeBatWarmUp {
 	}
 	
 	@Test
-	public void WarmUp8(){
+	public void warmUp9(){
 		assertEquals(8,WarmUp.close10(8, 13));
 		assertEquals(8,WarmUp.close10(13, 8));
 		assertEquals(0,WarmUp.close10(13, 7));
 
+	}
+	
+	@Test
+	public void warmUp10(){
+		assertEquals(true,WarmUp.stringE("hello"));
+		assertEquals(true,WarmUp.stringE("heelle"));
+		assertEquals(false,WarmUp.stringE("heellele"));
+	}
+	
+	@Test
+	public void warmUp11(){
+		assertEquals("ciao",WarmUp.everyNth("ciao", 1));
+		assertEquals("ca",WarmUp.everyNth("ciao", 2));
+		assertEquals("co",WarmUp.everyNth("ciao", 3));
+	}
+	
+	@Test
+	public void warmUp12(){
+		assertEquals(true,WarmUp.monkeyTrouble(true, true));
+		assertEquals(false,WarmUp.monkeyTrouble(true, false));
+		assertEquals(true,WarmUp.monkeyTrouble(false, false));
+	}
+	
+	@Test
+	public void warmUp13(){
+		assertEquals(true,WarmUp.parrotTrouble(true, 6));
+		assertEquals(false,WarmUp.parrotTrouble(true, 7));
+		assertEquals(false,WarmUp.parrotTrouble(false, 6));
+	}
+	
+	@Test
+	public void warmUp14(){
+		assertEquals(true,WarmUp.posNeg(-1, 1, false));
+		assertEquals(true,WarmUp.posNeg(1, -1, false));
+		assertEquals(true,WarmUp.posNeg(-1, -1, true));
+	}
+	
+	@Test
+	public void warmUp15(){
+		assertEquals("ao", WarmUp.frontBack("oa"));
+		assertEquals("a", WarmUp.frontBack("a"));
+	}
+	
+	@Test
+	public void warmUp16(){
+		assertEquals(true,WarmUp.or35(3));
+		assertEquals(true,WarmUp.or35(5));
+		assertEquals(false,WarmUp.or35(8));
+	}
+	
+	@Test
+	public void warmUp17(){
+		assertEquals(true,WarmUp.icyHot(-1, 101));
+		assertEquals(true,WarmUp.icyHot(101, -1));
+		assertEquals(false,WarmUp.icyHot(1, 101));
+	}
+	
+	@Test
+	public void warmUp18(){
+		assertEquals(true,WarmUp.loneTeen(1, 13));
+		assertEquals(true,WarmUp.loneTeen(13, 1));
+		assertEquals(false,WarmUp.loneTeen(13, 13));
+	}
+	
+	@Test
+	public void warmUp19(){
+		assertEquals("oz",WarmUp.startOz("oz"));
+		assertEquals("z",WarmUp.startOz("az"));
+		assertEquals("o",WarmUp.startOz("oe"));
+		assertEquals("",WarmUp.startOz("ae"));
+	}
+	
+	@Test
+	public void warmUp20(){
+		assertEquals(true, WarmUp.in3050(31, 32));
+		assertEquals(true, WarmUp.in3050(41, 42));
+		assertEquals(false, WarmUp.in3050(31, 42));
+	}
+	
+	@Test
+	public void warmUp21(){
+		assertEquals(true,WarmUp.lastDigit(17, 57));
+		assertEquals(false,WarmUp.lastDigit(6, 57));
+		assertEquals(true,WarmUp.lastDigit(3, 113));
 	}
 }
