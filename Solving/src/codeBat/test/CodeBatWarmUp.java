@@ -158,4 +158,74 @@ public class CodeBatWarmUp {
 		assertEquals(false,WarmUp.lastDigit(6, 57));
 		assertEquals(true,WarmUp.lastDigit(3, 113));
 	}
+	
+	@Test
+	public void warmUp22(){
+		assertEquals(4,WarmUp.sumDouble(3, 1));
+		assertEquals(8,WarmUp.sumDouble(2, 2));
+		assertEquals(-2,WarmUp.sumDouble(-3, 1));
+		assertEquals(-8,WarmUp.sumDouble(-2, -2));
+	}
+	
+	@Test
+	public void warmUp23(){
+		assertEquals(true,WarmUp.makes10(1, 10));
+		assertEquals(true,WarmUp.makes10(10, 1));
+		assertEquals(true,WarmUp.makes10(5, 5));
+		assertEquals(false,WarmUp.makes10(1, 5));
+	}
+	
+	@Test
+	public void warmUp24(){
+		assertEquals("not ok",WarmUp.notString("ok"));
+		assertEquals("notok",WarmUp.notString("notok"));
+		assertEquals("not k",WarmUp.notString("k"));
+	}
+	
+	@Test
+	public void warmUp25(){
+		assertEquals("ciaciacia",WarmUp.front3("ciao"));
+		assertEquals("okokok",WarmUp.front3("ok"));
+	}
+	
+	@Test
+	public void warmUp26(){
+		assertEquals("ciciaoci",WarmUp.front22("ciao"));
+		assertEquals("aaa",WarmUp.front22("a"));
+	}
+	
+	@Test
+	public void warmUp27(){
+		assertEquals(true,WarmUp.in1020(10, 20));
+		assertEquals(true,WarmUp.in1020(10, 21));
+		assertEquals(true,WarmUp.in1020(9, 20));
+		assertEquals(false,WarmUp.in1020(9, 21));
+	}
+	
+	@Test
+	public void warmUp28(){
+		assertEquals("ciao",WarmUp.delDel("cdeliao"));
+		assertEquals("ciao",WarmUp.delDel("ciao"));
+		assertEquals("ok",WarmUp.delDel("ok"));
+	}
+	
+	@Test
+	public void warmUp29(){
+		assertEquals(3,WarmUp.intMax(1, 2, 3));
+		assertEquals(3,WarmUp.intMax(3, 2, 1));
+		assertEquals(3,WarmUp.intMax(1, 3, 1));
+		assertEquals(3,WarmUp.intMax(3, 3, 3));
+	}
+	
+	@Test
+	public void warmUp30(){
+		assertEquals(20,WarmUp.max1020(10, 20));
+		assertEquals(10,WarmUp.max1020(10, 21));
+	}
+	
+	@Test
+	public void warmUp31(){
+		assertEquals("cIAO",WarmUp.endUp("ciao"));
+		assertEquals("CI",WarmUp.endUp("ci"));
+	}
 }

@@ -238,4 +238,101 @@ public class WarmUp {
 			return true;
 		return false;
 	}
+	
+	/**
+	 * Given two int values, return their sum. Unless the two values are the same, then return double their sum.
+	 */
+	public static int sumDouble(int a, int b){
+		if(a!=b)
+			return a+b;
+		return (a+b)*2;
+	}
+	
+	/**
+	 * Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10.
+	 */
+	public static boolean makes10(int a, int b) {
+		return (a == 10 || b == 10 || a+b == 10);
+	}
+	
+	/**
+	 * Given a string, return a new string where "not " has been added to the front. 
+	 * However, if the string already begins with "not", return the string unchanged.
+	 */
+	public static String notString(String str){
+		if(str.length() >= 3 && str.substring(0, 3).equals("not"))
+			return str;
+		return "not " + str;
+	}
+	
+	/**
+	 * Given a string, we'll say that the front is the first 3 chars of the string. 
+	 * If the string length is less than 3, the front is whatever is there. 
+	 * Return a new string which is 3 copies of the front.
+	 */
+	public static String front3(String str){
+		String front = str.substring(0,(str.length() < 3 ? str.length() : 3));
+		return front + front + front;
+	}
+	
+	/**
+	 * Given a string, take the first 2 chars and return the string with the 2 chars added at both the front and back,
+	 *  so "kitten" yields"kikittenki". If the string length is less than 2, use whatever chars are there.
+	 */
+	public static String front22(String str){
+		String front = str.substring(0, (str.length() < 2 ? str.length() : 2));
+		return front + str + front;
+	}
+	
+	/**
+	 * Given 2 int values, return true if either of them is in the range 10..20 inclusive.
+	 */
+	public static boolean in1020(int a, int b){
+		return ( a >= 10 && a <= 20 || b >= 10 && b <= 20);
+	}
+	
+	/**
+	 * Given a string, if the string "del" appears starting at index 1, return a string where that "del" has been deleted.
+	 * Otherwise, return the string unchanged.
+	 */
+	public static String delDel(String str){
+		if(str.length() >= 4 && str.substring(1, 4).equals("del"))
+			return str.charAt(0) + str.substring(4);
+		return str;
+	}
+	
+	/**
+	 * Given three int values, a b c, return the largest.
+	 */
+	public static int intMax(int a, int b, int c){
+		return Math.max(a, Math.max(b, c));
+	}
+	
+	/**
+	 * Given 2 positive int values, return the larger value that is in the range 10..20 inclusive, or return 0 if neither is in that range.
+	 */
+	public static int max1020(int a, int b){
+		int max,min;
+		if(a > b){
+			max = a;
+			min = b;
+		} else {
+			max = b;
+			min = a;
+		}
+		if(max >= 10 && max <=20) return max;
+		if(min >=10 && min <=20) return min;
+		return 0;
+	}
+	
+	/**
+	 * Given a string, return a new string where the last 3 chars are now in upper case. 
+	 * If the string has less than 3 chars, uppercase whatever is there. Note that str.toUpperCase() returns the uppercase version of a string.
+	 */
+	public static String endUp(String str){
+		int lenght = str.length();
+		if(lenght > 3)
+			return str.substring(0, lenght-3) + str.substring(lenght-3, lenght).toUpperCase();
+		return str.toUpperCase();
+	}
 }
