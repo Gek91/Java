@@ -3,7 +3,7 @@ package projectEuler.implementation;
 public class LexicographicPermutations {
 
 	/**
-	 * Calculate the nex lexicographc permutation of the input array
+	 * Calculate the next lexicographc permutation of the input array
 	 * @param array
 	 */
 	public static void nextLexicographicPermutation(int[] array){

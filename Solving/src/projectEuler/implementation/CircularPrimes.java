@@ -34,7 +34,13 @@ public class CircularPrimes {
 	        n /= 10;
 	    return l;           
 	}
-	 
+	
+	 /**
+	  * Calculate the number of prime number that is circular with value less than maxNumber
+	  * 
+	  * @param maxNumber
+	  * @return
+	  */
 	 public static int numberOfPrimeCircular(int maxNumber){
 		 int count = 0;
 		 Map<Integer,Boolean> cache = new TreeMap<Integer,Boolean>();
@@ -54,6 +60,13 @@ public class CircularPrimes {
 		 return count;
 	 }
 	 
+	 /**
+	  * Check if the number is a prime number using a map like a cache
+	  * 
+	  * @param n
+	  * @param cache
+	  * @return
+	  */
 	 public static boolean isPrimeWithCache(int n, Map<Integer,Boolean> cache){
 		 Boolean cacheRes = cache.get(n);
 		 if(cacheRes == null){

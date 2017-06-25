@@ -1,7 +1,5 @@
 package projectEuler.implementation;
 
-import java.math.BigInteger;
-
 public class FactorialDigitSum {
 
 	/**

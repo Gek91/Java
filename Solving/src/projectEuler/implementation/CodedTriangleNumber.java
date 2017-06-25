@@ -157,7 +157,7 @@ public class CodedTriangleNumber {
 	}
 	
 	/**
-	 * re
+	 * 
 	 * @param input
 	 * @return
 	 */
