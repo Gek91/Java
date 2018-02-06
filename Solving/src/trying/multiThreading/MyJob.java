@@ -1,5 +1,12 @@
 package trying.multiThreading;
 
+/**
+ * Runnable implementation
+ * 
+ * @author Gek
+ *
+ */
+
 public class MyJob implements Runnable{
 
 	private String name;
@@ -9,6 +16,7 @@ public class MyJob implements Runnable{
 		this.name = name;
 		this.value = value;
 	}
+	
 	@Override
 	public void run() {
 		System.out.println(name);

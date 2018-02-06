@@ -1,5 +1,11 @@
 package trying.multiThreading;
 
+/**
+ * Value Class
+ * 
+ * @author Gek
+ *
+ */
 public class Value {
 
 	private int value;

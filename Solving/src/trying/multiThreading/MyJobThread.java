@@ -1,5 +1,12 @@
 package trying.multiThreading;
 
+/**
+ * Thread extension implementation 
+ * 
+ * @author Gek
+ *
+ */
+
 public class MyJobThread extends Thread {
 
 	private String name;
