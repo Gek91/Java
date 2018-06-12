@@ -17,7 +17,8 @@ public class Read {
 //		parseBasic();
 //		parseFromURL();
 //		parseFromFile();
-		manageElement();
+//		elementsTraversing();
+		selectorSyntax();
 	}
 	
 	private static void parseBasic() {
@@ -47,6 +48,7 @@ public class Read {
 		Element head = doc.head();
 		System.out.println("Head : " + head.html());
 
+		//By Id
 		Element idElem = doc.getElementById("par");
 		System.out.println("Element with id par : " + idElem.html());
 		
@@ -57,6 +59,7 @@ public class Read {
 			System.out.println(it.next().html());
 		}
 	
+		//By Tag
 		System.out.println("ELEMENTS With tag <a>:");
 		Elements elementsWithTag = doc.getElementsByTag("a");
 		it = elementsWithTag.iterator();
@@ -64,6 +67,7 @@ public class Read {
 			System.out.println(it.next().html());
 		}
 		
+		//By Class
 		System.out.println("ELEMENTS With class 'myclass':");
 		Elements elementsWithClass = doc.getElementsByClass("myclass");
 		it = elementsWithClass.iterator();
@@ -71,6 +75,7 @@ public class Read {
 			System.out.println(it.next().html());
 		}
 		
+		//By Attribute
 		System.out.println("ELEMENTS With attribute 'href':");
 		Elements elementsWithAttribute = doc.getElementsByAttribute("href");
 		it = elementsWithAttribute.iterator();
@@ -79,7 +84,7 @@ public class Read {
 		}
 	}
 	
-	private static void manageElement() {
+	private static void elementsTraversing() {
 		
 		String html = ""
 				+ " <html>"
@@ -100,9 +105,8 @@ public class Read {
 		
 		Document doc = Jsoup.parse(html);
 
-		
 		Element idElem = doc.getElementById("par");
-
+		//element fields
 		System.out.println("tag: " + idElem.tag());
 		System.out.println("text: " + idElem.text());
 		System.out.println("html: " + idElem.html());
@@ -110,6 +114,7 @@ public class Read {
 		System.out.println("attributes: " + idElem.attributes().html());
 		System.out.println("id: " + idElem.id());
 		
+		//Traversing 
 		Element parent = idElem.parent();
 		System.out.println("Parent : " + parent);
 		Elements siblings = idElem.siblingElements();
@@ -117,7 +122,39 @@ public class Read {
 		Elements children = idElem.children();
 		System.out.println("Children : " + children);
 
+	}
+	
+	private static void selectorSyntax() {
 		
+		String html = ""
+				+ " <html>"
+				+ "		<head>"
+				+ "			<title>First parse</title>"
+				+ "		</head>"
+				+ "	"
+				+ "		<body>"
+				+ " 		<div class='myclass'>"
+				+ " 			<div id=\"par\" myattribute1=\"val1\" myattribute2=\"val2\">"
+				+ "					<p id=\"inner1\">Parsed HTML into a doc.</p>"
+				+ "					<p id=\"inner2\">Parsed HTML into a doc.</p>"
+				+ "				</div>"
+				+ "  			<span id=\"sib\">"
+				+ "			</div>"
+				+ " 		<a href=\\\"https://www.w3schools.com\\\">This is a link</a>\""
+				+ "		</body>"
+				+ "</html>";
+		
+		Document doc = Jsoup.parse(html);
+
+		//CSS/JQuery selector
+		Element elem = doc.select("div.myclass").first();
+		System.out.println(elem);
+		
+		elem = doc.select("#sib").first();
+		System.out.println(elem);
+		
+		elem = doc.select("[href]").first();
+		System.out.println(elem);
 	}
 	
 	private static void parseFromURL() {
