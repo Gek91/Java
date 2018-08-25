@@ -13,6 +13,7 @@ import com.google.api.client.extensions.java6.auth.oauth2.AuthorizationCodeInsta
 import com.google.api.client.extensions.jetty.auth.oauth2.LocalServerReceiver;
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeFlow;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
+import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpRequestInitializer;
 import com.google.api.client.http.HttpTransport;
@@ -33,12 +34,9 @@ public class DriveBasic {
     private static FileDataStoreFactory DATA_STORE_FACTORY;
 	
 	/** Application name. */
-    private static final String APPLICATION_NAME = "Drive API Java Quickstart";
+    private static final String APPLICATION_NAME = "prova-api-gek";
 	
-	 /** Global instance of the HTTP transport. */
     private static HttpTransport HTTP_TRANSPORT;
-    
-    /** Global instance of the JSON factory. */
     private static final JsonFactory JSON_FACTORY = JacksonFactory.getDefaultInstance();
 		    
     /** Global instance of the scopes required by this quickstart.
@@ -96,8 +94,44 @@ public class DriveBasic {
 	public static Drive buildDriveService() throws Exception {
 		
 		Drive driveService = null;
+			
+//		InputStream in = new FileInputStream("Solving/resources/client_secret.json");
 		
+//		GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY,  new InputStreamReader(in)) ;
+		
+//		Credential googleCredeintal = new GoogleCredential.Builder()
+//											.setTransport(HTTP_TRANSPORT)
+//											.setJsonFactory(JSON_FACTORY)
+//											.setClientSecrets(clientSecrets)
+//											.build();
+													
+		
+		//Incremental BackOff
 		HttpRequestInitializer httpRequestInitialaizer = new RetryHttpInitializerWrapper(authorize());
+		
+		driveService = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, httpRequestInitialaizer).setApplicationName(APPLICATION_NAME).build();
+		
+		return driveService;
+	}
+	
+	public static Drive buildDriveServiceWithServiceAccount() throws Exception {
+		
+		Drive driveService = null;
+			
+		java.io.File in = new java.io.File("Solving/resources/service-account-key.p12");
+				
+		Credential googleCredeintal = new GoogleCredential.Builder()
+											.setTransport(HTTP_TRANSPORT)
+											.setJsonFactory(JSON_FACTORY)
+											.setServiceAccountId("prova-api@prova-api-gek.iam.gserviceaccount.com")
+											.setServiceAccountUser("gek.pandini@gmail.com")
+											.setServiceAccountScopes(SCOPES)
+											.setServiceAccountPrivateKeyFromP12File(in)
+											.build();
+													
+		
+		//Incremental BackOff
+		HttpRequestInitializer httpRequestInitialaizer = new RetryHttpInitializerWrapper(googleCredeintal);
 		
 		driveService = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, httpRequestInitialaizer).setApplicationName(APPLICATION_NAME).build();
 		

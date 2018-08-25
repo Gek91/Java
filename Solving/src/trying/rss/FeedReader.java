@@ -34,10 +34,6 @@ public class FeedReader {
 
 	 public static void main(String[] args) {
 		 
-		 
-
-		 
-		
 //		 try {
 //			prova2();
 //		} catch (KeyManagementException e) {
