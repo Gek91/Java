@@ -132,35 +132,5 @@ public class CutRod {
 		return solutions;
 	}
 	
-	////////////////////////////////////////////////////////////////
-	
-	public static void main(String[] args) {
-		
-		int result = cutRod(8);
-		System.out.println(result);
-		
-		result = memCutRod(8);
-		System.out.println(result);
-		
-		result = bottomUpCutRod(8);
-		System.out.println(result);	
-		
-		result = cutRod(4);
-		System.out.println(result);
-		
-		result = memCutRod(4);
-		System.out.println(result);
-		
-		result = bottomUpCutRod(4);
-		System.out.println(result);	
-		
-		result = cutRod(5);
-		System.out.println(result);
-		
-		result = memCutRod(5);
-		System.out.println(result);
-		
-		result = bottomUpCutRod(5);
-		System.out.println(result);	
-	}
+
 }

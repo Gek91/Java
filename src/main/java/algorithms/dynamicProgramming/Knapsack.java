@@ -108,22 +108,4 @@ public class Knapsack {
 		return new BigDecimal(decimal.toString()).add(result);
 	}
 	
-	public static void main(String[] args) {
-		
-		List<Boolean> used = new ArrayList<>();
-		used.add(false);
-		used.add(false);
-		used.add(false);
-				
-		int result = knapsack(50, used);
-		System.out.println(result);
-		
-		used = new ArrayList<>();
-		used.add(false);
-		used.add(false);
-		used.add(false);
-		
-		result = memKnapsack(50, used);
-		System.out.println(result);
-	}
 }
