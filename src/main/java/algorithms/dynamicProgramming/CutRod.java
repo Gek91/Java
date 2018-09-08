@@ -25,10 +25,8 @@ public class CutRod {
 		mapLengthPrice.put(6, 17);
 		mapLengthPrice.put(7, 17);
 		mapLengthPrice.put(8, 20);
-		mapLengthPrice.put(9, 24);
-		mapLengthPrice.put(10, 30);
 	}
-	
+		
 	/**
 	 * Dividi et impera solution
 	 * We can see the problem like we cut from the rod a piece of the rod and use the optimal solution of the resulting rod plus the 
@@ -38,15 +36,18 @@ public class CutRod {
 	 * @return optimal solution
 	 */
 	public static int cutRod(int n){
-		if(n <= 0)
-			return 0;
-		int q = -1;
-		for(int i = 1 ; i<=n; i++){
-			q = Math.max(q, mapLengthPrice.get(i) + cutRod(n-i));
+		
+		int q = 0;
+		for(int i : mapLengthPrice.keySet()) {
+				
+			int newN = n - i;
+			
+			//end recursion case | new recursion call -> get max value of all iteration
+			q = Math.max(q, newN < 0 ? 0 : mapLengthPrice.get(i) + cutRod(newN));
 		}
 		return q;
 	}
-	
+		
 	///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	//Dynamic Programming
 	// The graph of the subproblem help to calculate the running time of the algorithm. Since we calculate every subproblem 
@@ -70,21 +71,22 @@ public class CutRod {
 		return memCutRodAux(n, saveArray);
 	}
 	
-	public static int memCutRodAux(int n, int[] saveArray){
-		if(saveArray[n] >= 0)
-			return saveArray[n-1];
-		int q  = -1;
-		if(n <= 0)
-			q = 0;
-		else {
-			for(int i = 1 ; i<=n; i++){
-				q = Math.max(q, mapLengthPrice.get(i) + cutRod(n-i));
-			}
+	private static int memCutRodAux(int n, int[] saveArray){
+		if(saveArray[n] > 0)
+			return saveArray[n];
+		int q = 0;
+			
+		for(int i : mapLengthPrice.keySet()){
+			
+			int newN = n - i;
+			
+			q = Math.max(q, newN < 0 ? 0 : mapLengthPrice.get(i) + memCutRodAux(newN, saveArray));
 		}
+
 		saveArray[n] = q;
 		return q;
 	}
-	
+		
 	/**
 	 * Dynamic programming
 	 * Bottom Up approach, sort the subproblem by size using the concept that the problem of size i is smaller
@@ -128,5 +130,37 @@ public class CutRod {
 			saveArray[j] = q;
 		}
 		return solutions;
+	}
+	
+	////////////////////////////////////////////////////////////////
+	
+	public static void main(String[] args) {
+		
+		int result = cutRod(8);
+		System.out.println(result);
+		
+		result = memCutRod(8);
+		System.out.println(result);
+		
+		result = bottomUpCutRod(8);
+		System.out.println(result);	
+		
+		result = cutRod(4);
+		System.out.println(result);
+		
+		result = memCutRod(4);
+		System.out.println(result);
+		
+		result = bottomUpCutRod(4);
+		System.out.println(result);	
+		
+		result = cutRod(5);
+		System.out.println(result);
+		
+		result = memCutRod(5);
+		System.out.println(result);
+		
+		result = bottomUpCutRod(5);
+		System.out.println(result);	
 	}
 }
