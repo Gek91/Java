@@ -1,8 +1,10 @@
-package main.java.trying.greedy.activitySelection;
+package test.java.algorithms.greedy;
 
 import java.util.List;
 
 import org.junit.Test;
+
+import main.java.algorithms.greedy.ActivitySelection;
 
 public class ActivitySelectionTest {
 

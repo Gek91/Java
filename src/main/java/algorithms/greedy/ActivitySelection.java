@@ -1,4 +1,4 @@
-package main.java.trying.greedy.activitySelection;
+package main.java.algorithms.greedy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,14 +32,14 @@ public class ActivitySelection {
 		
 		/**
 		 * Recursive solution of activity selector
-		 * @param k
-		 * @param n
+		 * @param k: start index
+		 * @param n: end index
 		 * @return
 		 */
 		public static List<Integer> recursiveActivitySelector(int k, int n){
 			List<Integer> result = new ArrayList<Integer>();
 			int m = k+1;
-			while( m < n && activites[m].getS() < activites[k].getF()){
+			while( m < n && activites[m].getStart() < activites[k].getEnd()){
 				m = m+1;
 			}
 			if( m < n){
@@ -54,7 +54,7 @@ public class ActivitySelection {
 			result.add(1);
 			int k = 1;
 			for(int m = 2 ; m<n ; m++){
-				if(activites[m].getS() >= activites[k].getF()){
+				if(activites[m].getStart() >= activites[k].getEnd()){
 					result.add(m);
 					k = m;
 				}
@@ -64,16 +64,15 @@ public class ActivitySelection {
 }
 
 class Pair{
-	int s;
-	int f;
+	int start;
+	int end;
 	
-	public Pair(int s, int f){
-		this.s = s;
-		this.f = f;
+	public Pair(int start, int end){
+		this.start = start;
+		this.end = end;
 	}
 	
-	public int getS(){ return this.s; }
-	public int getF(){ return this.f; }
-	public void setS(int s){ this.s = s; }
-	public void setF(int f){ this.f = f; }
+	public int getStart(){ return this.start; }
+	public int getEnd(){ return this.end; }
+
 }
