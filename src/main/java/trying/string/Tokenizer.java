@@ -1,4 +1,4 @@
-package main.java.trying.string;
+package trying.string;
 
 import java.io.IOException;
 import java.io.Reader;

@@ -1,10 +1,10 @@
-package main.java.algorithms.sort;
+package algorithms.sort;
 
 import java.lang.reflect.Array;
 
-import main.java.algorithms.dataStructure.heap.Heap;
-import main.java.algorithms.dataStructure.heap.Heap.HeapType;
-import main.java.algorithms.dataStructure.heap.impl.BinaryHeap;
+import algorithms.dataStructure.heap.Heap;
+import algorithms.dataStructure.heap.Heap.HeapType;
+import algorithms.dataStructure.heap.impl.BinaryHeap;
 
 
 

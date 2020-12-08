@@ -1,4 +1,4 @@
-package test.java.algorithms.dynamicProgramming;
+package algorithms.dynamicProgramming;
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import main.java.algorithms.dynamicProgramming.Knapsack;
+import algorithms.dynamicProgramming.Knapsack;
 
 public class KnapSackTest {
 

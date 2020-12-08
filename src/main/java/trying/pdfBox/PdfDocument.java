@@ -1,4 +1,4 @@
-package main.java.trying.pdfBox;
+package trying.pdfBox;
 
 	import java.awt.Color;
 	import java.io.ByteArrayInputStream;

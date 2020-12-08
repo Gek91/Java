@@ -1,4 +1,4 @@
-package main.java.trying.security.keys;
+package trying.security.keys;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;

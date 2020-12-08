@@ -1,4 +1,4 @@
-package main.java.trying.HTMLParser;
+package trying.HTMLParser;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;

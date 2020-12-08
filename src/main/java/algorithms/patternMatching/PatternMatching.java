@@ -1,4 +1,4 @@
-package main.java.algorithms.patternMatching;
+package algorithms.patternMatching;
 
 public class PatternMatching {
 
@@ -37,7 +37,43 @@ public class PatternMatching {
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
 
-	private static int[] funzionePrefisso(String S) { //calcola tutti i prefissi di una stringa che si ripetono in essa e li ritorna in un array lungo quanto la stringa in cui ogni elemento contiene la lunghezza del prefisso che inizia in quell'elemento della stringa. Per ogni indice della stringa calcola il prefiso più lungo che inizia in quell'indice in esso.
+	public static void KnuthMorrisPratt(String P, String T) {
+	    int m=P.length(); //grandezza stringa P
+	    int n=T.length(); //grandezza stringa T
+	    int[] d=new int[m+1]; //d[j] indicano gli spostamenti che si effettueranno una volta trovato un mismatch all'interno di un occorrenza. I casi sono due: nuova occorrenza prima dell'indice di mismatch di quella precedente oppure occorrenza oltre quell'indice
+	    P=P+'$'; //allungata con sentinella
+	    T=T+'x'; //allungata con carattere diverso da sentinella
+	    //FASE PREELABORAZIONE O(m): calcola i prefissi e i valori di d[j]
+	    int[] pref=funzionePrefisso(P); //calcola valori prefissi di P
+
+	    //i due cicli coalcolano d[j]=min({j} U {h | 1<=h<j, j=1+h+pref[1+h]}) che realizzano le due casistiche(j=occorrenza oltre l'indice di mismatch j, altrimenti se la condizione è verificata si avrò un occorrenza in posizione 1+h <j in P )
+	    for (int j=0; j<=m; j++){ //si assegna a d[j] il valore j
+	        d[j]=j;
+	    }
+	    for (int h=m-1; h>=0; h--) { //aggiorno d[j] se trovo un h con-> j=1+h+pref[1+h]
+	        d[1+h+pref[1+h]]=h;
+	    }
+	    
+	    //FASE RICERCA O(n)
+	    int j=0; // indice che scorre P
+	    int i=j; //indice che scorre T
+	    while (i<=n-m)
+	    {
+	        while(P.charAt(j)==T.charAt(i+j)){ //se trovo un match tra l'emento P e l'elemento T presi in considerazione
+	            j=j+1; //confronto i caratteri successivi
+	        }
+	        if(j>=m){ //trovato un occorrenzza di P in T in posizione i
+	            System.out.println("Occorrenza in "+i);
+	        }
+	        //l'aggiornamento dei due valori di i e j è in relazione al valore di d[j] calcolato nella preelaborazione. I due casi realizzando le situazione in cui la prossima occorrenza di P in T sia prima dell'indice in cui la precedenti ha avuto un mismatch (in questo caso i confronti partiranno da j in P) oppure nel caso l'occorrenzza successiva sia dopo e si continuano i confronti oltre quell'indice (dal primo elemento di P)
+	        i=i+d[j]+1; //aggiorno i passando all'indice successivo in cui può esserci un occorrenza
+	        j=Math.max(0,j-d[j]-1); //scelgo l'indice in P in relazione al caso
+	    }
+	    System.out.println("Termine");
+	}
+	
+	//calcola tutti i prefissi di una stringa che si ripetono in essa e li ritorna in un array lungo quanto la stringa in cui ogni elemento contiene la lunghezza del prefisso che inizia in quell'elemento della stringa. Per ogni indice della stringa calcola il prefiso più lungo che inizia in quell'indice in esso.
+	private static int[] funzionePrefisso(String S) { 
 	    int n=S.length();
 	    int[] pref=new int[n];        // array contenente il risultato
 	    pref[0]=n;          //lunghezza del prefisso del primo carattere è tutta la stringa
@@ -74,7 +110,8 @@ public class PatternMatching {
 	    return pref;
 	}
 
-	public static void matchingPrefisso(String P, String T) { // concatena P$T ed esegue la funzione prefisso, i matching sono i prefissi che si trovano in T di lunghezza pari a quella di P
+	 // concatena P$T ed esegue la funzione prefisso, i matching sono i prefissi che si trovano in T di lunghezza pari a quella di P
+	public static void matchingPrefisso(String P, String T) {
 	    String input=P+'$'+T;
 	    int[] res=funzionePrefisso(input);
 	    int Plenght=P.length();
@@ -86,56 +123,9 @@ public class PatternMatching {
 	    System.out.println("Termine");
 	}
 
-	public static void KnuthMorrisPratt(String P, String T)
-	{
-	    int m=P.length(); //grandezza stringa P
-	    int n=T.length(); //grandezza stringa T
-	    int[] d=new int[m+1]; //d[j] indicano gli spostamenti che si effettueranno una volta trovato un mismatch all'interno di un occorrenza. I casi sono due: nuova occorrenza prima dell'indice di mismatch di quella precedente oppure occorrenza oltre quell'indice
-	    P=P+'$'; //allungata con sentinella
-	    T=T+'x'; //allungata con carattere diverso da sentinella
-	    //FASE PREELABORAZIONE O(m): calcola i prefissi e i valori di d[j]
-	    int[] pref=funzionePrefisso(P); //calcola valori prefissi di P
-
-	    //i due cicli coalcolano d[j]=min({j} U {h | 1<=h<j, j=1+h+pref[1+h]}) che realizzano le due casistiche(j=occorrenza oltre l'indice di mismatch j, altrimenti se la condizione è verificata si avrò un occorrenza in posizione 1+h <j in P )
-	    for (int j=0; j<=m; j++){ //si assegna a d[j] il valore j
-	        d[j]=j;
-	    }
-	    for (int h=m-1; h>=0; h--) { //aggiorno d[j] se trovo un h con-> j=1+h+pref[1+h]
-	        d[1+h+pref[1+h]]=h;
-	    }
-	    
-	    //FASE RICERCA O(n)
-	    int j=0; // indice che scorre P
-	    int i=j; //indice che scorre T
-	    while (i<=n-m)
-	    {
-	        while(P.charAt(j)==T.charAt(i+j)){ //se trovo un match tra l'emento P e l'elemento T presi in considerazione
-	            j=j+1; //confronto i caratteri successivi
-	        }
-	        if(j>=m){ //trovato un occorrenzza di P in T in posizione i
-	            System.out.println("Occorrenza in "+i);
-	        }
-	        //l'aggiornamento dei due valori di i e j è in relazione al valore di d[j] calcolato nella preelaborazione. I due casi realizzando le situazione in cui la prossima occorrenza di P in T sia prima dell'indice in cui la precedenti ha avuto un mismatch (in questo caso i confronti partiranno da j in P) oppure nel caso l'occorrenzza successiva sia dopo e si continuano i confronti oltre quell'indice (dal primo elemento di P)
-	        i=i+d[j]+1; //aggiorno i passando all'indice successivo in cui può esserci un occorrenza
-	        j=Math.max(0,j-d[j]-1); //scelgo l'indice in P in relazione al caso
-	    }
-	    System.out.println("Termine");
-	}
-
 	////////////////////////////////////////////////////////////////////////////////////////////
 
-	private static String reverse(String S) //restituisce la stringa in ingresso rovesciata
-	{
-	    String H = "";
-	    for(int i=0; i<S.length(); i++)
-	    {
-	        H = S.charAt(i) + H;
-	    }
-	    return H;
-	}
-
-	public static void BoyerMoore(String P, String T)
-	{
+	public static void BoyerMoore(String P, String T) {
 	    int m=P.length(); //grandezza stringa P
 	    int n=T.length(); //grandezza stringa T
 	    int[] d= new int[m+1]; //d[j] indicano gli spostamenti che si effettueranno una volta trovato un mismatch all'interno di un occorrenza. I casi sono due: nuova occorrenza prima dell'indice di mismatch di quella precedente oppure occorrenza oltre quell'indice
@@ -173,23 +163,21 @@ public class PatternMatching {
 	    }
 	    System.out.println("Termine");
 	}
+	
+	//restituisce la stringa in ingresso rovesciata
+	private static String reverse(String S)  {
+	    String H = "";
+	    for(int i=0; i<S.length(); i++)
+	    {
+	        H = S.charAt(i) + H;
+	    }
+	    return H;
+	}
 
 	//////////////////////////////////////////////////////////////////////////////////////////
 
-	private static void Bit_Shift(boolean vec[],int n) {//Scifta il contenuto del vettore booleano di una casella verso destra. Ultimo elemento è perso, all'inizio è inserito un 1
-	    boolean h1=vec[0];
-	    boolean h2;
-	    for( int i=1; i<n ; i++ ){
-	        h2=vec[i];
-	        vec[i]=h1;
-	        h1=h2;
-	    }
-	    vec[0]= true;
-	}
-	
-
-	public static void Shift_And(String P, String T)
-	{
+	public static void Shift_And(String P, String T) {
+		
 	    int m=P.length(); //grandezza stringa P
 	    int n=T.length(); //grandezza stringa T
 	    boolean U[][] = new boolean [126-33+1][m]; //Matrice che contiene i vettori U[j] di lunghezza m, contengono le posizioni nel pattern del catarrete j
@@ -224,4 +212,16 @@ public class PatternMatching {
 	    System.out.println("Termine");
 	}
 
+	//Scifta il contenuto del vettore booleano di una casella verso destra. Ultimo elemento è perso, all'inizio è inserito un 1
+	private static void Bit_Shift(boolean vec[],int n) {
+	    boolean h1=vec[0];
+	    boolean h2;
+	    for( int i=1; i<n ; i++ ){
+	        h2=vec[i];
+	        vec[i]=h1;
+	        h1=h2;
+	    }
+	    vec[0]= true;
+	}
+	
 }

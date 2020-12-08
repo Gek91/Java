@@ -1,4 +1,4 @@
-package main.java.trying.multiThreading;
+package trying.multiThreading;
 
 /**
  * Runnable implementation

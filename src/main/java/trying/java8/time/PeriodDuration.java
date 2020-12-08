@@ -1,4 +1,4 @@
-package main.java.trying.java8.time;
+package trying.java8.time;
 
 import java.time.Duration;
 import java.time.LocalDate;

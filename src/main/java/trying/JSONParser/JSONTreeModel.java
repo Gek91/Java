@@ -1,4 +1,4 @@
-package main.java.trying.JSONParser;
+package trying.JSONParser;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package main.java.algorithms.geometry;
+package algorithms.geometry;
 
 public class Punto implements Comparable<Punto>{
    private int x; //coordinata x

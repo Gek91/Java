@@ -1,4 +1,4 @@
-package main.java.trying.HTMLParser;
+package trying.HTMLParser;
 
 import java.io.File;
 import java.io.IOException;

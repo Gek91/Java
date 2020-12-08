@@ -1,8 +1,6 @@
-package test.java.projectEuler;
+package projectEuler;
 
 import org.junit.Test;
-
-import main.java.projectEuler.LexicographicPermutations;
 
 
 public class LexicographicpermutationsTest {

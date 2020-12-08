@@ -1,4 +1,4 @@
-package main.java.projectEuler;
+package projectEuler;
 
 import java.math.BigInteger;
 import java.security.InvalidParameterException;

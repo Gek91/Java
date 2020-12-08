@@ -1,12 +1,11 @@
-package test.java.projectEuler;
+package projectEuler;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import main.java.projectEuler.CountingSunday;
-import main.java.projectEuler.CountingSunday.Day;
-import main.java.projectEuler.CountingSunday.Month;
+import projectEuler.CountingSunday.Day;
+import projectEuler.CountingSunday.Month;
 
 
 

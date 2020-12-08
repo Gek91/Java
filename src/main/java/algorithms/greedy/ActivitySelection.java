@@ -1,4 +1,4 @@
-package main.java.algorithms.greedy;
+package algorithms.greedy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -64,6 +64,7 @@ public class ActivitySelection {
 }
 
 class Pair{
+	
 	int start;
 	int end;
 	

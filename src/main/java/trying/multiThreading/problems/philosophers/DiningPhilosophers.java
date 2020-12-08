@@ -1,4 +1,4 @@
-package main.java.trying.multiThreading.problems.philosophers;
+package trying.multiThreading.problems.philosophers;
 
 public class DiningPhilosophers {
 

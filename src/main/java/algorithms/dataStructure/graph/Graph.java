@@ -1,4 +1,4 @@
-package main.java.algorithms.dataStructure.graph;
+package algorithms.dataStructure.graph;
 
 import java.util.List;
 import java.util.Stack;

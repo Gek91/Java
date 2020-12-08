@@ -1,4 +1,4 @@
-package main.java.algorithms.dataStructure.heap;
+package algorithms.dataStructure.heap;
 
 /**
  * Heap data structure. Heap is a three base data structure that satisfies a particular property:

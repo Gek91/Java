@@ -1,10 +1,10 @@
-package main.java.algorithms.dataStructure.tree.impl;
+package algorithms.dataStructure.tree.impl;
 
 	import java.util.ArrayList;
 import java.util.List;
 
-import main.java.algorithms.dataStructure.tree.Tree;
-import main.java.algorithms.dataStructure.tree.TreeElem;
+import algorithms.dataStructure.tree.Tree;
+import algorithms.dataStructure.tree.TreeElem;
 
 
 

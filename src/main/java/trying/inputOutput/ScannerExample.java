@@ -1,4 +1,4 @@
-package main.java.trying.inputOutput;
+package trying.inputOutput;
 
 import java.util.Scanner;
 

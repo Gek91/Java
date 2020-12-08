@@ -1,4 +1,4 @@
-package main.java.algorithms.dataStructure.tree;
+package algorithms.dataStructure.tree;
 /**
  * 
  * @author Giacomo Pandini

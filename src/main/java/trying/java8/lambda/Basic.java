@@ -1,4 +1,4 @@
-package main.java.trying.java8.lambda;
+package trying.java8.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;

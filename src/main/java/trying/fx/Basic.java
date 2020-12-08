@@ -1,4 +1,4 @@
-package main.java.trying.fx;
+package trying.fx;
 
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;

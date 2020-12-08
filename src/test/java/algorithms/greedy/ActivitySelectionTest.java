@@ -1,10 +1,10 @@
-package test.java.algorithms.greedy;
+package algorithms.greedy;
 
 import java.util.List;
 
 import org.junit.Test;
 
-import main.java.algorithms.greedy.ActivitySelection;
+import algorithms.greedy.ActivitySelection;
 
 public class ActivitySelectionTest {
 

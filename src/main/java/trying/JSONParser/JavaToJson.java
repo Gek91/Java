@@ -1,4 +1,4 @@
-package main.java.trying.JSONParser;
+package trying.JSONParser;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -6,7 +6,7 @@ import java.util.Date;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import main.java.trying.JSONParser.classes.Car;
+import trying.JSONParser.classes.Car;
 
 
 public class JavaToJson {

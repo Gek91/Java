@@ -1,4 +1,4 @@
-package main.java.trying.rss;
+package trying.rss;
 
 import java.io.IOException;
 import java.io.InputStream;

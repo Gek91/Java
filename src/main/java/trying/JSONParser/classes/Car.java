@@ -1,4 +1,4 @@
-package main.java.trying.JSONParser.classes;
+package trying.JSONParser.classes;
 
 public class Car {
 

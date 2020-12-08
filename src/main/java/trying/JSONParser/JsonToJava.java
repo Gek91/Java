@@ -1,4 +1,4 @@
-package main.java.trying.JSONParser;
+package trying.JSONParser;
 
 import java.io.File;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.List;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import main.java.trying.JSONParser.classes.Car;
+import trying.JSONParser.classes.Car;
 
 
 public class JsonToJava {

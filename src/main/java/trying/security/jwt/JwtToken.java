@@ -1,16 +1,17 @@
- package main.java.trying.security.jwt;
+ package trying.security.jwt;
 
 import java.security.KeyPair;
 import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.UUID;
+
 import org.apache.commons.lang3.time.DateUtils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-import main.java.trying.security.keys.PublicPrivateKeyPair;
+import trying.security.keys.PublicPrivateKeyPair;
 
 public class JwtToken {
 

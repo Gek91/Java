@@ -1,4 +1,4 @@
-package main.java.projectEuler;
+package projectEuler;
 
 public class SelfPower {
 

@@ -1,4 +1,4 @@
-package main.java.trying.java8.optional;
+package trying.java8.optional;
 
 import java.util.Optional;
 

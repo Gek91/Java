@@ -1,4 +1,4 @@
-package main.java.trying.reflection;
+package trying.reflection;
 
 import java.io.IOException;
 

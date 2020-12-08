@@ -1,10 +1,8 @@
-package test.java.projectEuler;
+package projectEuler;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
-
-import main.java.projectEuler.Multiple3or5;
 
 
 public class Multiple3or5Test {

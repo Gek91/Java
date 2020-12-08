@@ -1,10 +1,10 @@
-package test.java.algorithms.dynamicProgramming;
+package algorithms.dynamicProgramming;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import main.java.algorithms.dynamicProgramming.CutRod;
+import algorithms.dynamicProgramming.CutRod;
 
 
 public class CutRodTest {

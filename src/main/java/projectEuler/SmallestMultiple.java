@@ -1,4 +1,4 @@
-package main.java.projectEuler;
+package projectEuler;
 
 import java.util.HashMap;
 import java.util.List;

@@ -1,4 +1,4 @@
- package main.java.algorithms.dynamicProgramming;
+ package algorithms.dynamicProgramming;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
