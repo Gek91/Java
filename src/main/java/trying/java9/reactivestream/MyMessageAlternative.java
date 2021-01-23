@@ -1,0 +1,5 @@
+package trying.java9.reactivestream;
+
+public class MyMessageAlternative extends MyMessage {
+
+}
